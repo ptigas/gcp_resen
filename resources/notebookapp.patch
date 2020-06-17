@@ -1,0 +1,20 @@
+--- notebookapp.py	2019-06-13 18:27:03.146124768 -0700
++++ notebookapp_edit.py	2019-06-13 18:31:38.970660662 -0700
+@@ -408,7 +408,7 @@
+ 
+     # Poll to see if it shut down.
+     for _ in range(timeout*10):
+-        if check_pid(pid):
++        if not check_pid(pid):
+             if log: log.debug("Server PID %s is gone", pid)
+             return True
+         time.sleep(0.1)
+@@ -421,7 +421,7 @@
+ 
+     # Poll to see if it shut down.
+     for _ in range(timeout * 10):
+-        if check_pid(pid):
++        if not check_pid(pid):
+             if log: log.debug("Server PID %s is gone", pid)
+             return True
+         time.sleep(0.1)
